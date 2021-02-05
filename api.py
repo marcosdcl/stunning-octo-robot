@@ -1,4 +1,3 @@
-
 from flask import Flask
 from flask_restful import Api
 from resources.product_resource import ProductResource
