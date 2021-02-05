@@ -3,12 +3,12 @@ sys.path.append('.')
 from models.base_model import BaseModel
 from models.product import Product
 
+
 name = 'Test'
 description = 'description'
 price = 350
 
 product = Product(name, description, price)
-
 
 def test_compare_column_model():
     assert product.name == name

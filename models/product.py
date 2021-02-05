@@ -3,12 +3,18 @@ from sqlalchemy import Column, String, Numeric
 from models.base_model import BaseModel
 from sqlalchemy.orm import validates
 
+
 class Product(BaseModel):
     __tablename__ = 'product_group03'
     name = Column(String(length=150), nullable=False)
     description = Column(String(length=200), nullable=True)
     price = Column(Numeric, nullable=False)
 
+    def __init__(self, name: str, description: str, price: float):
+        self.name = name
+        self.description = description
+        self.price = price
+        
     @validates('name')
     def validate_name(self, key, name):
         if name is None:
@@ -29,7 +35,3 @@ class Product(BaseModel):
            raise ValueError("Price can't have a character!")
         return float(price) 
 
-    def __init__(self, name: str, description: str, price: float):
-        self.name = name
-        self.description = description
-        self.price = price
