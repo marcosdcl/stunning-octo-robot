@@ -9,7 +9,7 @@ from daos.product_dao import ProductDao
 
 @pytest.fixture
 def create_model():
-    product = Product('Name', 'Description')
+    product = Product('Name', 'Description',3.4)
     return product
 
 
